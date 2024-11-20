@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import config from '../config';
 
 const WinnersPage = () => {
   const { wheelId } = useParams();
@@ -10,7 +11,7 @@ const WinnersPage = () => {
   useEffect(() => {
     const fetchWinners = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/wheels/${wheelId}/winners`);
+        const response = await fetch(`${config.BASE_URL}/wheels/${wheelId}/winners`);
         const data = await response.json();
         setWinners(data.winners);
       } catch (error) {

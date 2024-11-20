@@ -9,6 +9,7 @@ import {
   ArrowRight, 
   Trophy 
 } from 'lucide-react';
+import config from '../config';
 
 const HomePage = () => {
   const [wheels, setWheels] = useState([]);
@@ -20,7 +21,7 @@ const HomePage = () => {
   // Fetch wheels from API
   const fetchWheels = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/wheels');
+      const response = await fetch(`${config.BASE_URL}/wheels`);
       const data = await response.json();
       setWheels(data);
       setLoading(false);
@@ -42,7 +43,7 @@ const HomePage = () => {
   const handleDelete = async (wheelId) => {
     if (window.confirm('Are you sure you want to delete this wheel?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/wheels/delete/${wheelId}`, {
+        const response = await fetch(`${config.BASE_URL}/wheels/delete/${wheelId}`, {
           method: 'DELETE',
         });
         if (response.ok) {

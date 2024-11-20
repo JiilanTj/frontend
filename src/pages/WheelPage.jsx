@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import SpinningWheel from '../components/SpinningWheel';
+import config from '../config';
 
 const WheelPage = () => {
   const { id } = useParams();
@@ -43,7 +44,7 @@ const WheelPage = () => {
   useEffect(() => {
     const fetchWheel = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/wheels/${id}`);
+        const response = await fetch(`${config.BASE_URL}/wheels/${id}`);
         const data = await response.json();
 
         if (response.ok) {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import config from '../config';
 
 const CreateWheelModal = ({ onClose, onSuccess }) => {
   const [title, setTitle] = useState('');
@@ -31,7 +32,7 @@ const CreateWheelModal = ({ onClose, onSuccess }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/wheels/create', {
+      const response = await fetch(`${config.BASE_URL}/wheels/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

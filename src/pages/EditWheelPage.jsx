@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Plus, Trash2 } from 'lucide-react';
+import config from '../config';
 
 const EditWheelPage = () => {
   const { id } = useParams();
@@ -17,7 +18,7 @@ const EditWheelPage = () => {
   useEffect(() => {
     const fetchWheel = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/wheels/${id}`);
+        const response = await fetch(`${config.BASE_URL}/wheels/${id}`);
         if (!response.ok) throw new Error('Failed to fetch wheel data');
         
         const data = await response.json();

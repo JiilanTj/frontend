@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import config from '../config';
 
 const WheelDetailsPage = () => {
   const { wheelId } = useParams();  // Getting wheelId from the URL
@@ -10,7 +11,7 @@ const WheelDetailsPage = () => {
   useEffect(() => {
     const fetchWheelDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/wheels/${wheelId}/details`);
+        const response = await fetch(`${config.BASE_URL}/wheels/${wheelId}/details`);
         const data = await response.json();
         setWheel(data.wheel);
         setLoading(false);

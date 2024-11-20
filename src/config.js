@@ -1,5 +1,5 @@
 const config = {
-  BASE_URL: 'http://localhost:5000/api',
+  BASE_URL: 'http://213.190.4.211/api',
 };
 
 export default config;

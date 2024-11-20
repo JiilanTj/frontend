@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Share2, Pencil, Trash2, X } from 'lucide-react';
+import config from '../config';
 
 const WheelDetailModal = ({ wheel, onClose, onDelete, onEdit }) => {
   const [winners, setWinners] = useState([]);
@@ -10,7 +11,7 @@ const WheelDetailModal = ({ wheel, onClose, onDelete, onEdit }) => {
   useEffect(() => {
     const fetchWinners = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/wheels/${wheel._id}/details`);
+        const response = await fetch(`${config.BASE_URL}/wheels/${wheel._id}/details`);
         const data = await response.json();
         setWinners(data.winners);
       } catch (error) {
