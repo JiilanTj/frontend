@@ -84,7 +84,7 @@ const WheelPage = () => {
       //   spinSoundRef.current.play();
       // }
 
-      const response = await fetch('http://localhost:5000/api/wheels/spin', {
+      const response = await fetch(`${config.BASE_URL}/wheels/spin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ const WheelPage = () => {
         }, 4000);
 
         // Save winner data
-        await fetch('http://localhost:5000/api/wheels/save-winner', {
+        await fetch(`${config.BASE_URL}/wheels/save-winner`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
