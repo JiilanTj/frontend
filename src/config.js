@@ -1,5 +1,5 @@
 const config = {
-  BASE_URL: 'http://213.190.4.211/api',
+  BASE_URL: 'https://rvgroup.online/api',
 };
 
 export default config;
